@@ -1,0 +1,117 @@
+#intro{
+    height: calc(100vh - 4rem);
+    width: 100vw;
+    max-width: 75rem;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+}
+
+.intro{
+    position: absolute;
+    top: -2rem;
+    right: -8rem;
+    z-index: -1;
+    object-fit: cover;
+    height: 100vh;
+}
+.introContent{
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+    font-size: 3rem;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.hey{
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: rgb(197, 108, 0);
+}
+.introtxt{
+    color: rgb(230, 255, 255);
+}
+.introname{
+    color: rgb(12, 128, 128);
+}
+.intropara{
+    font-size: medium;
+    font-weight: 580;
+    color: rgb(13, 0, 0);
+}
+.btn{
+    background: white;
+    margin: 1rem 0;
+    padding: 0.75rem 2rem;
+    border-radius: 2rem;
+    border: none;
+    cursor: pointer;
+}
+.links1 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.link1{
+    object-fit: cover;
+    height: 3rem;
+    width: 3rem;
+    margin: 0 0.30rem;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    cursor: pointer;
+}
+
+.link1:hover {
+    transform: scale(1.2);
+}
+
+@media screen and (max-width:840px){
+    .intro{
+        right: -30vw;
+    }
+    .introContent{
+        font-size: 6vw;
+    }
+    .hey{
+        font-size: 4.5vw;
+    }
+    .introtxt{
+        font-size: 2.6vw;
+    }
+    .intropara{
+        font-size: 1.5vw;
+    }
+}
+@media screen and (max-width:480px){
+    .intro{
+        right: -45vw;
+        margin-top: -38px;
+    }
+    .introContent{
+        font-size: 6vw;
+        margin-top: 20px;
+    }
+    .introname{
+        color: rgb(230, 255, 255);
+    }
+    .hey{
+        font-size: 4.5vw;
+    }
+    .introtxt{
+        font-size: 6vw;
+    }
+    .intropara{
+        font-size: 2.8vw;
+        color: rgb(230, 255, 255);
+    }
+    .btn{
+        margin-bottom: -120px;
+    }
+}
