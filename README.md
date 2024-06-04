@@ -10,7 +10,7 @@ Here is the screenshot of my portfolio website:
 ![portfolio](https://github.com/sharmilidas33/Sharmili-s_Portfolio/assets/128738858/0bf062cc-d79f-4a3e-80ae-804704d52e51)
 
 ## Deployment
-I have hosted this website on Netlify. You can visit it here- [https://sharmiliportfolio.netlify.app/]
+I have hosted this website on Netlify. You can visit it here- [https://sharmili-s-portfolio.vercel.app/]
 
 ## Features
 
