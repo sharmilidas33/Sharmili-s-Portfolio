@@ -2,7 +2,6 @@ import React from 'react'
 import './intro.css'
 import intro from '../../../assets/intro.png'
 import github from '../../../assets/github.png'
-import facebook from '../../../assets/facebbok.jpg'
 import linkedin from '../../../assets/linkedin.png'
 import gmail from '../../../assets/gmail.png'
 import { Link } from 'react-scroll';

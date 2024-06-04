@@ -7,7 +7,13 @@ const Experience = () => {
     <section id='experience1'>
             <h1 className='title'>Experience</h1>
             <p className='titlePara'>I am an individual who believes that real time project experiences are a lot more valuable than daily lectures. I have done a few internships, and have learnt a lot from each one of them.</p>
-        
+        <div className="contents">
+            <div className="box">
+                <h3>PHP Developer Intern,</h3>
+                <h4>at Onlighten Media, <br />(Mumbai, Maharashtra, India)</h4>
+                <p>My job is to build web applications, by learning from the seniors in the company and tackling new challenges!</p>
+            </div>
+        </div>
         <div className="contents">
             <div className="box">
                 <h3>Junior Software Developer Intern,</h3>

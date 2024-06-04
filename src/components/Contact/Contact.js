@@ -1,7 +1,6 @@
 import React, { useRef } from 'react'
 import './contact.css'
 import github from '../../assets/github.png'
-import facebook from '../../assets/facebbok.jpg'
 import linkedin from '../../assets/linkedin.png'
 import gmail from '../../assets/gmail.png'
 import emailjs from '@emailjs/browser';

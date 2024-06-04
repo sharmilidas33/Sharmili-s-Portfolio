@@ -9,6 +9,8 @@ import jokegenerator from '../../assets/jokegenerator.png'
 import todo from '../../assets/Todo.png'
 import portfolio from '../../assets/portfolio.png'
 import ebook from '../../assets/ebook.png'
+import pepperSpray from '../../assets/pepperSpray.png'
+import discordBot from '../../assets/discordBot.png'
 
 const Projects = () => {
     return (
@@ -20,11 +22,27 @@ const Projects = () => {
                 </div>
                 <div className="work-list">
                     <div className="work">
+                        <img src={pepperSpray} alt="project0" />
+                        <div className="layer">
+                            <h3>Pepper Spray</h3>
+                            <p>A women safety application developed using React Native for recognising red zones and formulating a safe community forum.</p>
+                            <a href="https://github.com/SohamB21/PepperSpray-App">See More!</a>
+                        </div>
+                    </div>
+                    <div className="work">
                         <img src={ebook} alt="project1" />
                         <div className="layer">
                             <h3>EBook using MERN</h3>
                             <p>A MERN Stack Application with user authentication, dynamic data fetching, managing & more..</p>
                             <a href="https://e-book-using-mern.vercel.app/">See More!</a>
+                        </div>
+                    </div>
+                    <div className="work">
+                        <img src={discordBot} alt="project1a" />
+                        <div className="layer">
+                            <h3>Sharmili's Discord Bot</h3>
+                            <p>Sharmili's Discord Bot brings Google's AI power to your server! Use @ commands to interact with the AI and enhance your server experience.</p>
+                            <a href="https://github.com/sharmilidas33/Sharmili-s-Discord-Bot">See More!</a>
                         </div>
                     </div>
                     <div className="work">
@@ -40,7 +58,7 @@ const Projects = () => {
                         <div className="layer">
                             <h3>My PortFolio.</h3>
                             <p>A portfolio website of mine, developed using React JS!</p>
-                            <a href="#">See More!</a>
+                            <a href="https://sharmili-s-portfolio.vercel.app/">See More!</a>
                         </div>
                     </div>
                     <div className="work">
