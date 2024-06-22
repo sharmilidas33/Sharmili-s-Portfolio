@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link activeClass='active' to='experience' spy={true} smooth={true} duration={500} className="deskMenuListItem">EXPERIENCE</Link>
         <Link activeClass='active' to='contact' spy={true} smooth={true} duration={500} className="deskMenuListItem">CONTACT</Link>
       </div>
-      <a href="https://drive.google.com/file/d/110OPyilqq0nStO3kAXn4ZlnTi9MSLhLr/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+      <a href="https://drive.google.com/file/d/1ACCH0HSXlLezZU5ezt0gM914-5XzJRg6/view?usp=sharing" target="_blank" rel="noopener noreferrer">
         <button className="deskMenuBtn">
           <img src={contact_us} alt="" className="deskMenuImg" /> My Resume
         </button>
