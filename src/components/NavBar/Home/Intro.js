@@ -1,6 +1,6 @@
 import React from 'react'
 import './intro.css'
-import intro from '../../../assets/intro.png'
+import intro from '../../../assets/intro2.png'
 import github from '../../../assets/github.png'
 import linkedin from '../../../assets/linkedin.png'
 import gmail from '../../../assets/gmail.png'

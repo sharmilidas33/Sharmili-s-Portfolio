@@ -30,9 +30,11 @@
     font-weight: 600;
     color: rgb(197, 108, 0);
 }
-.introtxt{
+.introtxt {
     color: rgb(230, 255, 255);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
+
 .introname{
     color: rgb(12, 128, 128);
 }
@@ -98,9 +100,6 @@
         font-size: 6vw;
         margin-top: 20px;
     }
-    .introname{
-        color: rgb(230, 255, 255);
-    }
     .hey{
         font-size: 4.5vw;
     }
@@ -109,7 +108,6 @@
     }
     .intropara{
         font-size: 2.8vw;
-        color: rgb(230, 255, 255);
     }
     .btn{
         margin-bottom: -120px;
