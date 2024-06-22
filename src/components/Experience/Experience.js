@@ -39,6 +39,7 @@ const Experience = () => {
       <section id='experience1'>
         <h1 className='title'>Experience</h1>
         <p className='titlePara'>I am an individual who believes that real time project experiences are a lot more valuable than daily lectures. I have done a few internships, and have learnt a lot from each one of them.</p>
+        <div className="content-exp">
         <div className="contents">
           {displayedExperiences.map((exp, index) => (
             <div className="box" key={index}>
@@ -47,6 +48,7 @@ const Experience = () => {
               <p>{exp.description}</p>
             </div>
           ))}
+        </div>
         </div>
         <button className="see-more" onClick={() => setShowAll(!showAll)}>
           {showAll ? 'Show Less' : 'See More'}

@@ -1,4 +1,4 @@
-#project{
+#project {
     overflow: hidden;
     width: 100vw;
     max-width: 65rem;
@@ -8,44 +8,46 @@
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    padding: 0 1rem; /* Add padding for small screens */
 }
 
-.sub-title{
+.sub-title {
     font-size: 3rem;
     font-weight: 600;
     padding-top: 3rem;
+    /* margin-bottom: 1.5rem; */
     color: rgb(205, 71, 53);
 }
 
-.sub-para{
+.sub-para {
     font-weight: 560;
     font-size: 1rem;
     color: rgb(146, 53, 0);
 }
 
-.work-list{
+.work-list {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(330px,1fr));
+    grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
     justify-content: center;
 }
 
-.work{
+.work {
     border-radius: 10px;
     position: relative;
     overflow: hidden;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-.work img{
+.work img {
     width: 100%;
     border-radius: 10px;
     display: block;
     transition: transform 0.5s;
 }
 
-.layer{
+.layer {
     width: 100%;
     height: 0;
     background: linear-gradient(rgba(0,0,0,0.6),#ffd95e);
@@ -65,18 +67,18 @@
     transition: height 0.5s;
 }
 
-.layer h3{
+.layer h3 {
     font-weight: 600;
     margin-bottom: 20px;
 }
 
-.layer p{
+.layer p {
     margin-top: 8px;
 }
 
-.layer a{
+.layer a {
     margin-top: 10px;
-    color:rgb(252, 253, 255);
+    color: rgb(252, 253, 255);
     text-decoration: underline;
     background: #4d4848;
     font-size: 18px;
@@ -87,11 +89,11 @@
     border-radius: 10px;
 }
 
-.work:hover img{
+.work:hover img {
     transform: scale(1.1);
 }
 
-.work:hover .layer{
+.work:hover .layer {
     height: 100%;
 }
 
@@ -100,7 +102,7 @@
     padding: 12px 24px;
     font-size: 16px;
     font-weight: bold;
-    color: #6f1212;
+    color: #ffffff;
     background: linear-gradient(135deg, #f76b1c, #fad961);
     border: none;
     border-radius: 30px;
@@ -122,6 +124,10 @@
 
     .projectSec {
         text-align: center;
-        padding-right: 35px;
+        margin-right: 15px;
+    }
+
+    .work-list {
+        margin-left: 3px;
     }
 }
