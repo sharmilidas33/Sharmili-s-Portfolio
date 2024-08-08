@@ -98,80 +98,103 @@ const Projects = () => {
     const visibleProjects = showAll ? projects : projects.slice(0, 4);
 
     const [displayText, setDisplayText] = useState('');
-    const [startTyping, setStartTyping] = useState(false);
-    const skillsRef = useRef(null);
+  const [startTyping, setStartTyping] = useState(false);
+  const skillsRef = useRef(null);
 
-    const fullText = "I like to create various projects using the skills I have. This portfolio is itself a project of mine developed using ReactJS. Here's some more -";
-    const typingSpeed = 100; // Adjust the speed as needed
-    const [wordsPerLine, setWordsPerLine] = useState(10); 
+  const fullText = "I like to create various projects using the skills I have. This portfolio is itself a project of mine developed using ReactJS. Here's some more -";
+  const typingSpeed = 200; // Speed of typing effect
+  const backspacingSpeed = 100; // Speed of backspacing effect
+  const [wordsPerLine, setWordsPerLine] = useState(10); // Default value
 
-    const updateWordsPerLine = () => {
-      if (window.innerWidth <= 480) {
-        setWordsPerLine(6); // Adjust to 6 words per line for small screens
-      } else {
-        setWordsPerLine(20); // Default value for larger screens
+  const updateWordsPerLine = () => {
+    if (window.innerWidth <= 480) {
+      setWordsPerLine(6); // Adjust to 6 words per line for small screens
+    } else {
+      setWordsPerLine(10); // Default value for larger screens
+    }
+  };
+
+  useEffect(() => {
+    updateWordsPerLine(); // Set initial value
+    window.addEventListener('resize', updateWordsPerLine); // Update on resize
+
+    return () => {
+      window.removeEventListener('resize', updateWordsPerLine); // Clean up listener
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartTyping(true);
+          observer.unobserve(skillsRef.current); // Stop observing after starting typing
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+      }
+    );
+
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
       }
     };
+  }, []);
 
-    useEffect(() => {
-      updateWordsPerLine(); // Set initial value
-      window.addEventListener('resize', updateWordsPerLine); // Update on resize
+  useEffect(() => {
+    if (startTyping) {
+      let index = 0;
+      const words = fullText.split(' ');
+      let currentText = '';
 
-      return () => {
-        window.removeEventListener('resize', updateWordsPerLine); // Clean up listener
-      };
-    }, []);
+      const typeText = () => {
+        if (index < words.length) {
+          currentText += words[index] + ' ';
+          setDisplayText(currentText);
 
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) {
-            setStartTyping(true);
-            observer.unobserve(skillsRef.current); // Stop observing after starting typing
+          // Check if we need to wrap the text
+          const lines = currentText.split('\n');
+          const lastLine = lines[lines.length - 1].split(' ');
+          if (lastLine.length >= wordsPerLine) {
+            currentText += '\n'; // Add new line
           }
-        },
-        {
-          threshold: 0.1, // Trigger when 10% of the section is visible
-        }
-      );
 
-      if (skillsRef.current) {
-        observer.observe(skillsRef.current);
-      }
-
-      return () => {
-        if (skillsRef.current) {
-          observer.unobserve(skillsRef.current);
+          index++;
+          setTimeout(typeText, typingSpeed);
+        } else {
+          // Start backspacing after typing is complete
+          setTimeout(() => {
+            let backIndex = currentText.length;
+            const backspaceText = () => {
+              if (backIndex > 0) {
+                currentText = currentText.slice(0, -1);
+                setDisplayText(currentText);
+                backIndex--;
+                setTimeout(backspaceText, backspacingSpeed);
+              } else {
+                // After backspacing, restart typing
+                setTimeout(() => {
+                  currentText = '';
+                  setDisplayText(currentText);
+                  index = 0;
+                  typeText(); // Restart typing effect
+                }, typingSpeed);
+              }
+            };
+            backspaceText();
+          }, typingSpeed);
         }
       };
-    }, []);
 
-    useEffect(() => {
-      if (startTyping) {
-        let index = 0;
-        const words = fullText.split(' ');
-        let currentText = '';
-
-        const typeText = () => {
-          if (index < words.length) {
-            currentText += words[index] + ' ';
-            setDisplayText(currentText);
-
-            // Check if we need to wrap the text
-            const lines = currentText.split('\n');
-            const lastLine = lines[lines.length - 1].split(' ');
-            if (lastLine.length >= wordsPerLine) {
-              currentText += '\n'; // Add new line
-            }
-
-            index++;
-            setTimeout(typeText, typingSpeed);
-          }
-        };
-
-        typeText(); // Start typing effect
-      }
-    }, [startTyping, wordsPerLine]);
+      typeText(); // Start typing effect
+    }
+  }, [startTyping, wordsPerLine]);
 
     return (
         <section id="project">

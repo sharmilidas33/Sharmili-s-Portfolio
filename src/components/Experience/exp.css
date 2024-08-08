@@ -1,4 +1,36 @@
-#experience{
+/* Keyframes for the black dot animation */
+@keyframes dotPulse {
+    0% {
+        transform: scale(1);
+        background-color: #232323;
+    }
+    50% {
+        transform: scale(1.5);
+        background-color: #555;
+    }
+    100% {
+        transform: scale(1);
+        background-color: #232323;
+    }
+}
+
+/* Keyframes for the box hover animation */
+@keyframes boxHover {
+    0% {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 0px 3px 12px 0px #670000;
+        transform: scale(1.02);
+    }
+    100% {
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, .1);
+        transform: scale(1);
+    }
+}
+
+#experience {
     min-height: calc(100vh - 4rem);
     max-width: 60rem;
     margin: 0 auto;
@@ -9,16 +41,16 @@
     align-items: center;
 }
 
-.container{
+.container {
     width: 100%;
     padding: 30px 10%;
 }
 
-.container{
+.container {
     padding-right: calc(10% - 30px);
 }
 
-.title{
+.title {
     font-size: 3rem;
     font-weight: 600;
     padding-top: 3rem;
@@ -26,19 +58,24 @@
     color: rgb(205, 71, 53);
 }
 
-.titlePara{
-    padding: 1rem;
-    font-weight: 560;
+.titlePara {
+    font-weight: 600;
     font-size: 1rem;
     color: rgb(146, 53, 0);
+    white-space: pre-wrap; /* Ensures that whitespace is preserved and text wraps */
+    word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+    width: 100%; /* Ensure it takes the full width of its container */
+    max-width: 100%; /* Prevents it from exceeding the container width */
+    padding: 0 1rem;
+    margin-bottom: 20px;
 }
 
-.contents{
+.contents {
     padding: 0px 30px;
-    border-left: 2px solid #232323;    
+    border-left: 2px solid #232323;
 }
 
-.box{
+.box {
     position: relative;
     padding: 20px;
     border: 1px solid #eaeaea;
@@ -47,15 +84,18 @@
     cursor: pointer;
     transition: all 0.4s;
     margin-bottom: 20px;
-    border-radius: 10px;
+    margin-top: 30px;
+    border-radius: 15px;
+    animation: boxHover 0.4s ease-in-out;
 }
 
-.box:hover{
+.box:hover {
     box-shadow: 0px 3px 12px 0px #670000;
     border: 1px solid transparent;
+    animation: boxHover 0.4s ease-in-out;
 }
 
-.box::before{
+.box::before {
     content: '';
     position: absolute;
     width: 16px;
@@ -65,20 +105,21 @@
     top: 0;
     background-color: #232323;
     border: 2px solid rgb(69, 69, 69);
+    animation: dotPulse 1.5s infinite;
 }
 
-.box h3{
+.box h3 {
     position: relative;
     color: rgb(170, 153, 2);
 }
 
-.box h4{
+.box h4 {
     font-size: 18px;
     padding: 0px 0px 2px;
     font-weight: 400;
 }
 
-.box p{
+.box p {
     line-height: 1.2;
     font-size: 16px;
     color: #232323;
@@ -110,7 +151,7 @@
         right: 1.2rem;
     }
 
-    .content-exp{
+    .content-exp {
         margin-left: 30px;
     }
 }

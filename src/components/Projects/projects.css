@@ -20,7 +20,7 @@
 }
 
 .sub-para {
-    font-weight: 560;
+    font-weight: 600;
     font-size: 1rem;
     color: rgb(146, 53, 0);
     white-space: pre-wrap; /* Ensures that whitespace is preserved and text wraps */

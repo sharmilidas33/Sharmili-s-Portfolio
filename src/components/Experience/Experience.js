@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import './exp.css'
 
 const Experience = () => {
@@ -34,11 +34,118 @@ const Experience = () => {
 
   const displayedExperiences = showAll ? experiences : experiences.slice(0, 3);
 
+  const [displayText, setDisplayText] = useState('');
+  const [startTyping, setStartTyping] = useState(false);
+  const skillsRef = useRef(null);
+
+  const fullText = "I am an individual who believes that real time project experiences are a lot more valuable than daily lectures. I have done a few internships, and have learnt a lot from each one of them.";
+  const typingSpeed = 200; // Speed of typing effect
+  const backspacingSpeed = 100; // Speed of backspacing effect
+  const [wordsPerLine, setWordsPerLine] = useState(10); // Default value
+
+  const updateWordsPerLine = () => {
+    if (window.innerWidth <= 480) {
+      setWordsPerLine(6); // Adjust to 6 words per line for small screens
+    } else {
+      setWordsPerLine(20); // Default value for larger screens
+    }
+  };
+
+  useEffect(() => {
+    updateWordsPerLine(); // Set initial value
+    window.addEventListener('resize', updateWordsPerLine); // Update on resize
+
+    return () => {
+      window.removeEventListener('resize', updateWordsPerLine); // Clean up listener
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setStartTyping(true);
+          observer.unobserve(skillsRef.current); // Stop observing after starting typing
+        }
+      },
+      {
+        threshold: 0.1, // Trigger when 10% of the section is visible
+      }
+    );
+
+    if (skillsRef.current) {
+      observer.observe(skillsRef.current);
+    }
+
+    return () => {
+      if (skillsRef.current) {
+        observer.unobserve(skillsRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    if (startTyping) {
+      let index = 0;
+      const words = fullText.split(' ');
+      let currentText = '';
+      let typing = true; // Control typing or backspacing
+
+      const typeText = () => {
+        if (typing) {
+          if (index < words.length) {
+            currentText += words[index] + ' ';
+            setDisplayText(currentText);
+
+            // Check if we need to wrap the text
+            const lines = currentText.split('\n');
+            const lastLine = lines[lines.length - 1].split(' ');
+            if (lastLine.length >= wordsPerLine) {
+              currentText += '\n'; // Add new line
+            }
+
+            index++;
+            setTimeout(typeText, typingSpeed);
+          } else {
+            // Start backspacing after typing is complete
+            typing = false;
+            setTimeout(() => {
+              let backIndex = currentText.length;
+              const backspaceText = () => {
+                if (backIndex > 0) {
+                  currentText = currentText.slice(0, -1);
+                  setDisplayText(currentText);
+                  backIndex--;
+                  setTimeout(backspaceText, backspacingSpeed);
+                } else {
+                  // After backspacing, restart typing
+                  typing = true;
+                  setTimeout(() => {
+                    currentText = '';
+                    setDisplayText(currentText);
+                    index = 0;
+                    typeText(); // Restart typing effect
+                  }, typingSpeed);
+                }
+              };
+              backspaceText();
+            }, typingSpeed);
+          }
+        }
+      };
+
+      typeText(); // Start typing effect
+    }
+  }, [startTyping, wordsPerLine]);
+
   return (
     <div className="container" id="experience">
       <section id='experience1'>
         <h1 className='title'>Experience</h1>
-        <p className='titlePara'>I am an individual who believes that real time project experiences are a lot more valuable than daily lectures. I have done a few internships, and have learnt a lot from each one of them.</p>
+        <div ref={skillsRef}>
+          <p className='titlePara'>{displayText}</p>
+        </div>
+
         <div className="content-exp">
         <div className="contents">
           {displayedExperiences.map((exp, index) => (

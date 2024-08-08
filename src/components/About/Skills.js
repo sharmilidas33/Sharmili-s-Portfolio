@@ -22,12 +22,13 @@ const Skills = () => {
   const skillsRef = useRef(null);
 
   const fullText = "Welcome to my portfolio! I'm a tech enthusiast with a strong passion for crafting new websites and collaborating on real-time industry projects. My expertise lies in web development, particularly with the MERN Stack. Additionally, I possess excellent communication skills and problem-solving abilities, which I leverage to create innovative projects. Explore my work and let's connect for exciting tech ventures together.";
-  const typingSpeed = 100; // Adjust the speed as needed
+  const typingSpeed = 200; // Speed of typing effect
+  const backspacingSpeed = 100; // Speed of backspacing effect
   const [wordsPerLine, setWordsPerLine] = useState(10); // Default value
 
   const updateWordsPerLine = () => {
     if (window.innerWidth <= 480) {
-      setWordsPerLine(6); // Adjust to 5 words per line for small screens
+      setWordsPerLine(6); // Adjust to 6 words per line for small screens
     } else {
       setWordsPerLine(10); // Default value for larger screens
     }
@@ -81,11 +82,33 @@ const Skills = () => {
           const lines = currentText.split('\n');
           const lastLine = lines[lines.length - 1].split(' ');
           if (lastLine.length >= wordsPerLine) {
-            currentText += '\n'; // Add new line
+            currentText += '\n'; // Add new line if needed
           }
 
           index++;
           setTimeout(typeText, typingSpeed);
+        } else {
+          // Start backspacing after typing is complete
+          setTimeout(() => {
+            let backIndex = currentText.length;
+            const backspaceText = () => {
+              if (backIndex > 0) {
+                currentText = currentText.slice(0, -1);
+                setDisplayText(currentText);
+                backIndex--;
+                setTimeout(backspaceText, backspacingSpeed);
+              } else {
+                // After backspacing, restart typing
+                setTimeout(() => {
+                  currentText = '';
+                  setDisplayText(currentText);
+                  index = 0;
+                  typeText(); // Restart typing effect
+                }, typingSpeed);
+              }
+            };
+            backspaceText();
+          }, typingSpeed);
         }
       };
 
