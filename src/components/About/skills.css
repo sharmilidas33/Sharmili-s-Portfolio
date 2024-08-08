@@ -8,6 +8,16 @@
     align-items: center;
     text-align: center;
     margin: 0 auto;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .skilltitle {
@@ -16,21 +26,40 @@
     padding-top: 3rem;
     margin-bottom: 1.5rem;
     color: rgb(205, 71, 53);
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideIn 1.5s ease-out forwards;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .skillDesc {
-    font-weight: 500;
+    font-weight: 600;
     font-size: 1rem;
     max-width: 51rem;
     padding: 0 2rem;
-    color: black;
+    color: rgba(52, 1, 1, 0.595);
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.3s ease-out forwards;
+    position: relative;
 }
+
+
 .skillDesc2{
     font-weight: 600;
     font-size: 1.5rem;
     max-width: 51rem;
     padding: 0 2rem;
     margin-top: 20px;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.4s ease-out forwards;
 }
 
 .skillBars {
@@ -43,8 +72,9 @@
     justify-content: center;
     flex-wrap: wrap;
     display: flex;
-    /* grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 2px; */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 1.5s ease-out forwards;
 }
 
 .skillBar {
@@ -56,6 +86,15 @@
     padding: 1rem 1rem;
     border-radius: 0.5rem;
     background-color: brown;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: floatIn 1s ease-in-out forwards;
+    opacity: 0;
+}
+
+@keyframes floatIn {
+    to {
+        opacity: 1;
+    }
 }
 
 .skillBarImg {
@@ -63,24 +102,30 @@
     height: 6rem;
     width: 6rem;
     max-width: 100%;
+    transition: transform 0.3s ease;
 }
 
-.skillBarText>h2 {
+.skillBarText > h2 {
     color: azure;
     margin-top: 10px;
     font-size: 1rem;
-
+    transition: color 0.3s ease;
 }
 
 .skillBar:hover {
-    transform: scale(0.9);
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
 }
 
+.skillBar:hover .skillBarImg {
+    transform: rotate(10deg);
+}
 
-@media screen and (max-width:480px){
-    /* .skillBarText{
-        font-size: 3vw;
-    } */
+.skillBar:hover .skillBarText > h2 {
+    color: rgb(255, 193, 7);
+}
+
+@media screen and (max-width:480px) {
     .skillBars {
         margin: 1.5rem;
         width: 100vw;
@@ -90,14 +135,21 @@
         justify-items: center;
         flex-wrap: wrap;
         display: flex;
-        /* display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
-        gap: 2px; */
     }
-    .skillBarImg{
+
+    .skillBarImg {
         height: 4rem;
         width: 4.6rem;
         object-fit: cover;
         max-width: 100%;
     }
+
+    .skillDesc {
+        font-size: 0.875rem; /* Slightly smaller font size */
+        max-width: 90vw; /* Adjust max-width to fit within the screen */
+        padding: 0 1rem; /* Reduced padding to fit smaller screens */
+        margin: 0; /* Remove margin */
+        box-sizing: border-box; /* Ensure padding is included in the width */
+    }
+
 }

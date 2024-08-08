@@ -23,7 +23,13 @@
     font-weight: 560;
     font-size: 1rem;
     color: rgb(146, 53, 0);
+    white-space: pre-wrap; /* Ensures that whitespace is preserved and text wraps */
+    word-wrap: break-word; /* Allows long words to break and wrap to the next line */
+    width: 100%; /* Ensure it takes the full width of its container */
+    max-width: 100%; /* Prevents it from exceeding the container width */
+    padding: 0 1rem; /* Adjust padding if needed */
 }
+
 
 .work-list {
     display: grid;
