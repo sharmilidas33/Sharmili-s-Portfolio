@@ -17,7 +17,7 @@ const Navbar = () => {
         <Link activeClass='active' to='experience' spy={true} smooth={true} duration={500} className="deskMenuListItem">EXPERIENCE</Link>
         <Link activeClass='active' to='contact' spy={true} smooth={true} duration={500} className="deskMenuListItem">CONTACT</Link>
       </div>
-      <a href="" target="_blank" rel="noopener noreferrer">
+      <a href="https://drive.google.com/file/d/1sGflsLFZMnpr6wGmomzbsM422M50TxjH/view?usp=sharing" target="_blank" rel="noopener noreferrer">
         <button className="deskMenuBtn">
           <img src={contact_us} alt="" className="deskMenuImg" /> My Resume
         </button>
@@ -30,11 +30,11 @@ const Navbar = () => {
         <Link activeClass='active' to='project' spy={true} smooth={true} offset={-0} duration={500} className="listItem" onClick={()=>setShowMenu(false)}>PROJECTS</Link>
         <Link activeClass='active' to='experience' spy={true} smooth={true} duration={500} className="listItem" onClick={()=>setShowMenu(false)}>EXPERIENCE</Link>
         <Link activeClass='active' to='contact' spy={true} smooth={true} duration={500} className="listItem" onClick={()=>setShowMenu(false)}>CONTACT</Link>
-        {/* <a href="https://drive.google.com/file/d/110OPyilqq0nStO3kAXn4ZlnTi9MSLhLr/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">
+        <a href="https://drive.google.com/file/d/1sGflsLFZMnpr6wGmomzbsM422M50TxjH/view?usp=sharing" target="_blank" rel="noopener noreferrer">
           <button className="deskMenuBtn" onClick={()=>setShowMenu(false)}>
             <img src={contact_us} alt="" className="deskMenuImg" /> My Resume
           </button>
-        </a> */}
+        </a>
       </div>
     </nav>
   )
