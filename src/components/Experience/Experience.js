@@ -8,7 +8,7 @@ const Experience = () => {
     {
       title: 'PHP Developer Intern,',
       company: 'at Onlighten Media, (Mumbai, Maharashtra, India)',
-      description: 'My job is to build web applications, by learning from the seniors in the company and tackling new challenges!'
+      description: 'As a Developer here, I am specializing in CodeIgniter and other web development frameworks, I am engaged in full-time development work for 9 hours each day. My role involves learning and implementing CodeIgniter to develop robust and efficient real-time web applications. I am fortunate to be part of a supportive and knowledgeable team that fosters a collaborative environment. Working closely with senior developers has greatly enhanced my skills and understanding of best practices in web development.'
     },
     {
       title: 'Junior Software Developer Intern,',
