@@ -31,9 +31,9 @@ const Navbar = () => {
         <Link activeClass='active' to='experience' spy={true} smooth={true} duration={500} className="listItem" onClick={()=>setShowMenu(false)}>EXPERIENCE</Link>
         <Link activeClass='active' to='contact' spy={true} smooth={true} duration={500} className="listItem" onClick={()=>setShowMenu(false)}>CONTACT</Link>
         <a href="https://drive.google.com/file/d/1sGflsLFZMnpr6wGmomzbsM422M50TxjH/view?usp=sharing" target="_blank" rel="noopener noreferrer">
-          <button className="deskMenuBtn" onClick={()=>setShowMenu(false)}>
+          {/* <button className="deskMenuBtn" onClick={()=>setShowMenu(false)}>
             <img src={contact_us} alt="" className="deskMenuImg" /> My Resume
-          </button>
+          </button> */}
         </a>
       </div>
     </nav>
