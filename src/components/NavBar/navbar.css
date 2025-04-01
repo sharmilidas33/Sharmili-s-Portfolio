@@ -1,4 +1,4 @@
-.navbar{
+.navbar {
     height: 5rem;
     width: 100vw;
     max-width: 75rem;
@@ -13,23 +13,28 @@
     background-color: #F7E02F;
 }
 
-.logo{
+.logo {
     object-fit: cover;
     height: 3rem;
     width: 4rem;
 }
 
-.deskMenuListItem{
+.deskMenu {
+    display: flex;
+    align-items: center;
+}
+
+.deskMenuListItem {
     margin: 1rem;
     cursor: pointer;   
 }
-.deskMenuListItem:hover{
+.deskMenuListItem:hover {
     color: black;
     padding-bottom: 0.5rem;
     border-bottom: 3px solid black;
 }
 
-.deskMenuBtn{
+.deskMenuBtn {
     background: white;
     color: black;
     border: none;
@@ -39,31 +44,59 @@
     border-radius: 2rem;
     display: flex;
     font-weight: bold;
+    font-size: 12px;
     margin-right: 1rem;
-    text-decoration: underline;
+    text-decoration: none;
     cursor: pointer;
 }
 
-.deskMenuImg{
+.deskMenuImg {
     object-fit: cover;
     height: 2rem;
     width: 2rem;
     margin: 0.6rem;
 }
 
-.active{
+.active {
     color: rgb(45, 45, 48);
-    padding-bottom: 0.5rem;
+    padding-bottom: 0.1rem;
     border-bottom: 3px solid black;
 }
 
-.mobileMenu{
+/* Right side container styling for resume button and theme toggle */
+.rightMenu {
+    display: flex;
+    align-items: center;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.5rem;
+    background-color: transparent;
+    border: 2px solid #232323;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    margin-right: 1rem;
+}
+.theme-toggle.dark {
+    background-color: #232323;
+    color: #F7E02F;
+}
+
+/* Mobile Menu Styles */
+.mobileMenu {
     display: none;
     object-fit: cover;
     height: 3rem;
 }
 
-.navMenu{
+.navMenu {
     position: absolute;
     top: 4rem;
     right: 2rem;
@@ -74,23 +107,21 @@
     height: fit-content;
     min-width: 15rem;
     border-radius: 1rem;
-    background: #F7E02F ;
+    background: #F7E02F;
 }
 
-.listItem{
+.listItem {
     padding: 0.5rem 3rem;
     margin: 0.25rem;
     background: #fbd500;
 }
 
-@media screen and (max-width: 720px){
-    .mobileMenu{
+/* Responsive Styles */
+@media screen and (max-width: 720px) {
+    .mobileMenu {
         display: flex;
     }
-    .deskMenu{
+    .deskMenu {
         display: none;
     }
-    /* .deskMenuBtn{
-        display: none;
-    } */
 }

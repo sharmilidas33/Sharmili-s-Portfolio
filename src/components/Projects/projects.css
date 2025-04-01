@@ -8,14 +8,13 @@
     align-items: center;
     text-align: center;
     margin: 0 auto;
-    padding: 0 1rem; /* Add padding for small screens */
+    padding: 0 1rem; /* Padding for small screens */
 }
 
 .sub-title {
     font-size: 3rem;
     font-weight: 600;
     padding-top: 3rem;
-    /* margin-bottom: 1.5rem; */
     color: rgb(205, 71, 53);
 }
 
@@ -23,13 +22,12 @@
     font-weight: 600;
     font-size: 1rem;
     color: rgb(146, 53, 0);
-    white-space: pre-wrap; /* Ensures that whitespace is preserved and text wraps */
-    word-wrap: break-word; /* Allows long words to break and wrap to the next line */
-    width: 100%; /* Ensure it takes the full width of its container */
-    max-width: 100%; /* Prevents it from exceeding the container width */
-    padding: 0 1rem; /* Adjust padding if needed */
+    white-space: pre-wrap; /* Preserve whitespace and wrap text */
+    word-wrap: break-word; /* Break long words */
+    width: 100%;
+    max-width: 100%;
+    padding: 0 1rem;
 }
-
 
 .work-list {
     display: grid;
@@ -44,6 +42,8 @@
     position: relative;
     overflow: hidden;
     box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Added fade in animation for modern effect */
+    animation: fadeInUp 0.8s ease-out both;
 }
 
 .work img {
@@ -54,23 +54,46 @@
 }
 
 .layer {
-    width: 100%;
-    height: 0;
-    background: linear-gradient(rgba(0,0,0,0.6),#ffd95e);
-    border-radius: 10px;
     position: absolute;
+    top: 0;
     left: 0;
+    right: 0;
     bottom: 0;
-    overflow: hidden;
+    box-sizing: border-box;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), #ffd95e);
+    border-radius: 10px;
     color: whitesmoke;
     display: flex;
-    align-items: center;
-    justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    justify-content: center;
+    align-items: center;
+    padding: 20px 40px;
     text-align: center;
     font-size: 16px;
-    transition: height 0.5s;
+    transform: translateY(100%);
+    transition: transform 0.5s ease;
+    overflow-y: auto; /* Enables scrolling if content exceeds container */
+    scrollbar-width: thin; /* Firefox: makes scrollbar thin */
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent; /* Firefox: thumb and track colors */
+}
+
+/* WebKit Browsers */
+.layer::-webkit-scrollbar {
+    width: 6px; /* Thin scrollbar */
+}
+
+.layer::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.layer::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    border: 1px solid transparent;
+}
+
+.work:hover .layer {
+    transform: translateY(0);
 }
 
 .layer h3 {
@@ -85,12 +108,12 @@
 .layer a {
     margin-top: 10px;
     color: rgb(252, 253, 255);
-    text-decoration: underline;
-    background: #4d4848;
+    text-decoration: none;
+    background: #ba9609;
     font-size: 18px;
-    line-height: 60px;
+    line-height: 40px;
     width: 120px;
-    height: 60px;
+    height: 40px;
     text-align: center;
     border-radius: 10px;
 }
@@ -123,17 +146,64 @@
     transform: translateY(-3px);
 }
 
+/* Fade In Up Animation for Work Cards */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 @media screen and (max-width: 720px) {
     .work {
         right: 1.2rem;
     }
-
+    
     .projectSec {
         text-align: center;
         margin-right: 15px;
     }
-
+    
     .work-list {
         margin-left: 3px;
+    }
+}
+
+/* Additional adjustments for very small screens */
+@media screen and (max-width: 480px) {
+    .sub-title {
+        font-size: 2.5rem;
+        padding-top: 2rem;
+    }
+    
+    .sub-para {
+        font-size: 0.9rem;
+        padding: 0 0.5rem;
+    }
+    
+    .work-list {
+        grid-gap: 20px;
+        margin-top: 30px;
+    }
+    
+    .layer {
+        padding: 0 20px;
+        font-size: 14px;
+    }
+    
+    .layer a {
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 16px;
+    }
+    
+    .see-more {
+        padding: 10px 20px;
+        font-size: 14px;
     }
 }
